@@ -1,0 +1,63 @@
+{
+  "status": "public evaluation in progress; no efficacy conclusion",
+  "course_commit": "6e869d5c95341c740e38fa8bebcc658bfaa6c64f",
+  "robot_commit": "146bec3b6530df919bcda1b0e8a646fcbe6766bf",
+  "IsaacLab_commit_prefix": "e83a5d2",
+  "LeRobot_version": "0.4.3",
+  "LeRobot_commit_prefix": "0b067df",
+  "tasks": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9",
+    "T10"
+  ],
+  "base_policy": "lerobot/smolvla_base",
+  "training_seed": 1000,
+  "oracle_episodes_per_task": 50,
+  "autonomous_training_seeds_inclusive": [
+    4000,
+    4019
+  ],
+  "mixed_episodes_per_task": 70,
+  "B0": {
+    "policy_steps": 25000,
+    "batch_size": 16
+  },
+  "B1_R1_shared": {
+    "steps": 5000,
+    "batch_size": 16,
+    "lr": 2e-05,
+    "warmup": 200,
+    "chunk_size": 50,
+    "n_action_steps": 50,
+    "seed": 1000
+  },
+  "R1_only": {
+    "value_folds": 2,
+    "advantage_n_step": 50,
+    "threshold_percentile_autonomous": 60,
+    "condition_dropout": 0.3,
+    "deploy_condition": "positive"
+  },
+  "evaluation": {
+    "fps": 15,
+    "cameras": 3,
+    "success": "success_original",
+    "self_collision": "official asset",
+    "horizon_file": "vla_lab/eval_horizons.json",
+    "public_seeds_inclusive": [
+      100000,
+      100049
+    ],
+    "target_stage": "grasp",
+    "meaningful_success_delta_min_pp": 5,
+    "ci_lower_must_exceed_zero": true
+  },
+  "checkpoint_selection": "fixed last update"
+}
